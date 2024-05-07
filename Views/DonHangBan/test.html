@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Order Toast</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #toast-container {
+      position: fixed;
+      right: -100%; /* Start off-screen */
+      top: 20px;
+      width: 300px;
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: right 0.3s ease-in-out;
+    }
+
+    #toast-container.show {
+      right: 20px; /* Slide in from the right */
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="showToast()">Create Order</button>
+
+  <div id="toast-container">Order created successfully!</div>
+
+  <script>
+    // Function to show the toast message
+    function showToast() {
+      var toastContainer = document.getElementById('toast-container');
+      toastContainer.classList.add('show');
+
+      // Hide the toast after 3 seconds (adjust as needed)
+      setTimeout(function() {
+        toastContainer.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

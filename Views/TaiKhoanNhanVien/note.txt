@@ -1,0 +1,11 @@
+<?php if(check('../TaiKhoanNhanVien/PhanQuyen&id='.$row['IDNhanVien'])) { ?>
+                    <a href="../TaiKhoanNhanVien/PhanQuyen&id=<?=$row['IDNhanVien']?>">Phân quyền</a> |
+                    <?php } ?>
+
+                    <?php if(check('../TaiKhoanNhanVien/CapNhat&id='.$row['IDNhanVien'])) { ?>
+                    <a href="../TaiKhoanNhanVien/CapNhat&id=<?=$row['IDNhanVien']?>">Cập nhật</a> | 
+                    <?php } ?>  
+
+                    <?php if(check('../TaiKhoanNhanVien/Xoa&id='.$row['IDNhanVien'])) { ?>
+                    <a href="../TaiKhoanNhanVien/Xoa&id=<?=$row['IDNhanVien']?>" onclick="return confirm('Xác nhận xóa !');">Xóa</a>
+                    <?php } ?>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/3206410232.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Popins', sans-serif;
+    }
+
+    .wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .header {
+        height: 70px;
+        width: 100%;
+        position: fixed;
+       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -1px 4px 5px #c1c1c1;
+        z-index: 1000;
+        background: black;
+    }
+
+    .body {
+        display: flex;
+        z-index: 0;
+        
+    }
+
+    .left {
+        width: 16%;
+        min-height: 100vh;
+        background-color: black;    
+        position: fixed;
+        top: 70px;
+        transition: linear .3s;
+    }
+
+    .left1 {
+        width: 0;
+        opacity: 0;
+        transition: linear .3s;
+    }
+
+    .right {
+        width: 84%;
+        min-height: 100vh;
+        left: 16%;
+        position: absolute;
+        top: 70px;
+        transition: linear .3s;
+        z-index: 1;
+        background-color: #ebebeb;
+    }
+
+    .right1 {
+        width: 100%;
+        left: 0;
+        transition: linear .3s;
+    }
+
+    .dropdown-toggle::after {
+        position: absolute;
+        right: 0;
+        margin-top: 10px;
+        font-size: 20px;
+        color: white;
+    }
+    
+    .li1 {
+        transition:  .5s ease-in-out;
+    }
+
+    .expand {
+        left: 10%;
+        z-index: 10000000;
+        display: block;
+    }
+
+    .showWeb {
+        display: block;
+    }
+
+    .hideWeb {
+        display: none;
+    }
+
+    .animation {
+        animation: scale 1s ease-in-out infinite;
+    }
+
+    @keyframes scale {
+        from {
+            transform: scale(2);
+            opacity: 0.5;
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+
+        }
+    }
+
+    .billManage {
+        width: 22%;
+        height: auto;
+    }
+
+</style>
+<body>
+    <div class="wrapper">
+        <div style="z-index: 10000;" class="header">
+            <div style="width: 16%;" class="">
+                <img style="width: 100%; height: 100%;" src="https://top10soctrang.vn/wp-content/uploads/2021/07/phong-vu-soc-trang-2-1024x312.jpg" lt="">
+            </div>
+            <div style="width: 84%; display: flex; justify-content: space-between; align-items: center;" class="">
+                <div style="width: 100%; height: 100%; display: flex;" class="">
+                    <div id="showWeb1" style="cursor: pointer; display: flex; justify-content: center; align-items: center; background: gray; width: 20px; height: 20px; border-radius: 50%; font-size: 20px; color: white; font-weight: bold; margin-left: 10px;" class="">
+                            +
+                    </div>
+                    <div style="margin-left: 10px;" class="showWeb" id="showw">
+                        <a style="text-decoration: none; color: white;" href="#">Website</a>
+                    </div>
+                </div>
+               
+                <div style="display: flex;" class="">
+                    <!-- <div style="margin-left: 20px;" class="">
+                        <a href="">
+                            Home
+                        </a>
+                    </div>
+                    <div style="margin-left: 20px;" class="">
+                        <a href="">
+                            Setting
+                        </a>
+                    </div>
+                    <div style="margin-left: 20px;" class="">
+                        <a href="">
+                            Info
+                        </a>
+                    </div> -->
+                </div>
+                <div style="margin-right: 20px;" class="">
+                    <div class="dropdown">
+                        <a style="margin-right: 10px; background: none; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Adminstrator
+                        </a>
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Logout</a></li>
+                          <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%; height: 100%; z-index: 0;" class="body">
+            <div class="body1">
+                <div id="leftt" style="overflow: hidden;" class="left">
+                    <div style="padding: 20px 30px 20px 15px; display: flex; align-items: center;" class="">
+                        <div class="">
+                            <img style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" src="https://tse4.mm.bing.net/th?id=OIP.m_BHDL6pDIRMY19A2E83IQHaEK&pid=Api&P=0&h=180" alt="">
+                        </div>
+                        <div style="margin-left: 10px; font-size: 15px;" class="">
+                            <p style="margin: 0; color: #ccc;">Xin chào, <span style="font-weight: bold;">Sếp</span></p>
+                            <div style="display: flex; align-items: center;" class="">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: green;" class="animation"></div>
+                                <div style="margin-left: 5px; font-size: 13px; color: #fff;" class="">Online</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 20px 30px 20px 15px; " class="">
+                       
+                        <ul class="nav nav-stacked active">
+                            <li style="width: 100%; padding-bottom: 10px;">
+                                <a style="text-decoration: none;" href="#" class="">
+                                    <span class="aaa"><i class="fa-regular fa-user" style="color: #ffffff; font-size: 16px;"></i></span>
+                                    <span class="bbb" style="color: white; margin-left: 7px; font-size: 16px;">Dashboard</span>
+                                </a>
+                            </li>
+                            
+                            <li style="width: 100%; padding: 10px 0; position: relative;" data-bs-toggle="collapse" data-bs-target="#collapse0">
+                                <button style="width: 100%; text-align: left; border: none; background: none;" class="dropdown-toggle">
+                                    <span class="aaa"><i class="fa-regular fa-user" style="color: #ffffff;"></i></span>
+                                    <span class="bbb" style="color: white; margin-left: 7px; font-size: 15px;">Profile</span>
+                                </button>
+                                <ul class="li1" style="list-style: none;" id="collapse0" class="collapse text-white-50" data-bs-parent="#accordion">
+                                    <a style="text-decoration: none;" href="#">
+                                        <li style=" border-left: 1px dashed #ccc; padding: 5px 5px 5px 20px; margin-left: -25px;"><span>My Proflie</span></li>
+                                    </a>
+                                    <a style="text-decoration: none;" href="#">
+                                        <li style=" border-left: 1px dashed #ccc;padding: 5px 5px 5px 20px; margin-left: -25px; "><span>My Proflie</span></li>
+                                    </a>
+                                </ul>
+                            </li>
+    
+                            <li style="width: 100%; padding: 10px 0; position: relative;" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                <button style="width: 100%; text-align: left; border: none; background: none;" class="dropdown-toggle">
+                                    <span class="aaa"><i class="fa-regular fa-user" style="color: #ffffff;"></i></span>
+                                    <span class="bbb" style="color: white; margin-left: 7px; font-size: 15px;">Profile</span>
+                                </button>
+                                <ul class="li1" style="list-style: none;" id="collapse1" class="collapse text-white-50" data-bs-parent="#accordion">
+                                    <a style="text-decoration: none;" href="#">
+                                        <li style=" border-left: 1px dashed #ccc; padding: 5px 5px 5px 20px; margin-left: -25px;"><span>My Proflie</span></li>
+                                    </a>
+                                    <a style="text-decoration: none;" href="#">
+                                        <li style=" border-left: 1px dashed #ccc;padding: 5px 5px 5px 20px; margin-left: -25px; "><span>My Proflie</span></li>
+                                    </a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+                <div id="rightt" class="right">
+                    <div id="expanded" style="position: sticky; left: 0; top: 70px;" class="">
+                        <i style="font-size: 20px; color: white ;cursor: pointer; margin-top: 5px;" class="fa-solid fa-bars size"></i>
+                    </div>
+                    <div style="width: 100%; height: 100%; padding: 10px 30px 20px; " class="">
+                        <div class="container">
+                            <div style="gap: 20px; justify-content: space-around;" class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                              <div style="background: blue; width: 23%" class="col">
+                                <p>Đơn hàng thành công</p>
+                              </div>
+                              <div style="background: blue; width: 23%" class="col">
+                                <p>Đơn hàng đang vận chuyển</p>
+                              </div>
+                              <div style="background: blue; width: 23%" class="col">
+                                <p>Đang xử lí</p>
+                              </div>
+                              <div style="background: blue; width: 23%" class="col">
+                                <p>Đơn hàng hủy</p>
+                              </div>
+                              <div style="background: blue; width: 23%" class="col">
+                                <p>Doanh số</p>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+    <script>
+        const size = document.querySelector('.size');
+
+        const lefft = document.getElementById('leftt');
+        const rightt = document.getElementById('rightt');
+        const expand = document.querySelector('.expand');
+        const expand1 = document.getElementById('expanded');
+
+
+        const showWeb = document.getElementById('showWeb1');
+        const showWeb1 = document.getElementById('showw');
+
+        showWeb.onclick = () => {
+            showWeb1.classList.toggle('showWeb');
+            showWeb1.classList.toggle('hideWeb');
+        }
+
+
+        size.onclick = () => {
+            lefft.classList.toggle('left1');
+            rightt.classList.toggle('right1');
+            expand1.classList.toggle('expand');
+        }
+    </script>
+</body>
+</html>

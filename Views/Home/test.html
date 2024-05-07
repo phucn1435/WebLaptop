@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  /* CSS ban đầu cho phần tử <a> */
+  .my-link {
+    color: black;
+    text-decoration: none;
+  }
+
+  /* CSS khi phần tử <a> được nhấp vào */
+  .my-link.active {
+    color: red;
+    font-weight: bold;
+  }
+</style>
+<body>
+  <a href="?damme" class="my-link" onclick="toggleActiveState()">Link 1</a>
+<a href="?2" class="my-link" onclick="toggleActiveState()">Link 2</a>
+<a href="?3" class="my-link" onclick="toggleActiveState()">Link 3</a>
+
+</body>
+<script>
+  function toggleActiveState() {
+
+    var target = event.target; // Phần tử <a> được nhấp vào
+
+    // Kiểm tra xem phần tử đã có lớp "active" hay chưa
+    if (target.classList.contains('active')) {
+      target.classList.remove('active'); // Nếu có, loại bỏ lớp "active"
+    } else {
+      target.classList.add('active'); // Nếu chưa có, thêm lớp "active"
+    }
+  }
+</script>
+</html>

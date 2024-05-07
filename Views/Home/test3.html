@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTML -->
+<!-- Định nghĩa các sản phẩm với các nút chọn -->
+<div class="product" data-product-id="1">
+    Sản phẩm 1
+    <button class="select-btn">Chọn</button>
+  </div>
+  
+  <div class="product" data-product-id="2">
+    Sản phẩm 2
+    <button class="select-btn">Chọn</button>
+  </div>
+  
+  <div class="product" data-product-id="4">
+    Sản phẩm 3
+    <button class="select-btn">Chọn</button>
+  </div>
+  
+  <!-- JavaScript -->
+  <script>
+    // Xử lý khi tất cả các phần tử HTML đã được tải
+    document.addEventListener("DOMContentLoaded", function () {
+      const selectButtons = document.querySelectorAll(".select-btn");
+  
+      // Xử lý sự kiện khi người dùng ấn vào nút chọn sản phẩm
+      selectButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const productId = this.parentElement.dataset.productId;
+          saveToLocalStorage(productId);
+        });
+      });
+  
+      // Hàm để lưu ID vào localStorage
+      function saveToLocalStorage(productId) {
+        // Lấy danh sách sản phẩm đã lưu trước đó từ localStorage (nếu có)
+        let selectedProducts = JSON.parse(localStorage.getItem("selectedProducts")) || [];
+  
+        // Kiểm tra xem sản phẩm đã tồn tại trong danh sách chưa, nếu chưa thì lưu vào
+        if (!selectedProducts.includes(productId)) {
+          selectedProducts.push(productId);
+          // Lưu lại danh sách sản phẩm vào localStorage
+          localStorage.setItem("selectedProducts", JSON.stringify(selectedProducts));
+          console.log(`Đã lưu sản phẩm có ID ${productId} vào localStorage.`);
+        } else {
+          console.log(`Sản phẩm có ID ${productId} đã tồn tại trong localStorage.`);
+        }
+      }
+    });
+  </script>
+  
+</body>
+</html>
